@@ -5,24 +5,24 @@ import { styles } from "../../config/styles";
 import { View } from "react-native";
 import { useState } from "react";
 
-export default function LoginScreen({navigation}) {
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    const [hidePassword, setHidePassword] = useState(true);
+export default function LoginScreen({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [hidePassword, setHidePassword] = useState(true);
 
-    async function handleLogin (){
-        try{
-            const user = signInWithEmailAndPassword(auth ,email, senha)
-            if (user) {
-                console.log("Usuário Logado com sucesso!");
-                navigation.navigate("HomeScreen");
-            }
-        }catch(e){
-            console.error(e);
-        }
+  async function handleLogin() {
+    try {
+      const user = await signInWithEmailAndPassword(auth, email, senha);
+      if (user) {
+        console.log("Usuário Logado com sucesso!");
+        navigation.navigate("Home");
+      }
+    } catch (e) {
+      console.error(e);
     }
+  }
 
-    return (
+  return (
     <Surface style={styles.container}>
       <View style={styles.container_inner}>
         <Icon source="account" size={100} />
@@ -55,6 +55,8 @@ export default function LoginScreen({navigation}) {
         <Button onPress={() => navigation.navigate("RegisterScreen")}>
           Fazer cadastro
         </Button>
+        <Text>{"\n"}</Text>
+        <Button onPress={() => navigation.navigate("SettingsScreen")}>Configurações</Button>
       </View>
     </Surface>
   );

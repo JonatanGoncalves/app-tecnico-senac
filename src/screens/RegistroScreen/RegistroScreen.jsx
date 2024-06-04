@@ -11,19 +11,23 @@ export default function RegisterScreen() {
   const [confirmarSenha, setConfirmarSenha] = useState("");
   const [hidePassword, setHidePassword] = useState(true);
 
-  async function handleRegister(){
+  async function handleRegister() {
     if (senha !== confirmarSenha) {
-        alert("Senhas Não São Iguais.");
-        return;
+      alert("Senhas Não São Iguais.");
+      return;
     }
-    try{
-        const userRef = await createUserWithEmailAndPassword(auth, email, senha);
-        if (userRef) {
-            console.log("Usuário registrado com sucesso!");
-            navigation.navigate("LoginScreen");
-        }
-    }catch(e){
-        console.error(e);
+    if (email && senha == "") {
+      alert("Por Favor preencha os campos.");
+      return;
+    }
+    try {
+      const userRef = await createUserWithEmailAndPassword(auth, email, senha);
+      if (userRef) {
+        console.log("Usuário registrado com sucesso!");
+        navigation.navigate("LoginScreen");
+      }
+    } catch (e) {
+      console.error(e);
     }
   }
   return (
