@@ -8,6 +8,7 @@ import RegisterScreen from "../screens/RegistroScreen/RegistroScreen";
 import Home from "../screens/HomeScreen/screens/Home"
 import SplashScreen from "../screens/SplashScreen/SplashScreen";
 import SettingsScreen from "../screens/SettingsScreen/SettingsScreen";
+import Detail from "../screens/HomeScreen/screens/Detail";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,10 @@ export default function AppNavigator() {
                     <Stack.Screen
                         name="Home"
                         component={Home}
+                    />
+                    <Stack.Screen 
+                        name="Detail"
+                        component={Detail}
                     />
                     <Stack.Screen
                         name="SettingsScreen"

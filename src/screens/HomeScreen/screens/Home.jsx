@@ -34,7 +34,7 @@ export default function Home() {
                     cover={require("../assets/house1.jpg")}
                     name="Casa de Praia"
                     description="Casa nova uma quadra do mar, lugar seguro e monitorado 24horas."
-                    onPress={() => navigation.navigate("detail")}
+                    onPress={() => navigation.navigate("Detail")}
                 />
                 <New
                     cover={require("../assets/house2.jpg")}
