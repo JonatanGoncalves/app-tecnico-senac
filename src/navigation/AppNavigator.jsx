@@ -9,6 +9,8 @@ import Home from "../screens/HomeScreen/screens/Home"
 import SplashScreen from "../screens/SplashScreen/SplashScreen";
 import SettingsScreen from "../screens/SettingsScreen/SettingsScreen";
 import Detail from "../screens/HomeScreen/screens/Detail";
+import PhotoPostScreen from "../screens/PhotoPostScreen/PhotoPostScreen";
+import FeedScreen from "../screens/FeedScreen/FeedScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,28 +25,42 @@ export default function AppNavigator() {
                 <Stack.Navigator>
                     <Stack.Screen
                         name="SplashScreen"
-                        component={SplashScreen} />
+                        component={SplashScreen}
+                        options={{ headerShown: false }}
+                    />
                     <Stack.Screen
                         name="LoginScreen"
                         component={LoginScreen}
-                        options={{
-                            headerShown: false
-                        }} />
+                        options={{ headerShown: false }}
+                    />
                     <Stack.Screen
                         name="RegisterScreen"
                         component={RegisterScreen}
+                        options={{ title: "Registro de usuário" }}
                     />
                     <Stack.Screen
                         name="Home"
                         component={Home}
+                        options={{ headerShown: false }}
                     />
-                    <Stack.Screen 
+                    <Stack.Screen
                         name="Detail"
                         component={Detail}
                     />
                     <Stack.Screen
                         name="SettingsScreen"
                         component={SettingsScreen}
+                        options={{ title: "Configurações" }}
+                    />
+                    <Stack.Screen
+                        name="PhotoPostScreen"
+                        component={PhotoPostScreen}
+                        options={{ title: "Nova Postagem" }}
+                    />
+                    <Stack.Screen
+                        name="FeedScreen"
+                        component={FeedScreen}
+                        options={{ title: "Seu feed" }}
                     />
                 </Stack.Navigator>
             </NavigationContainer>

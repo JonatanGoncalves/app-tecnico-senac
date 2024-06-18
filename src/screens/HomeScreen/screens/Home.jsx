@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import New from "../components/New";
 import House from "../components/House";
 import Recommended from "../components/Recommended";
+import { Button } from "react-native-paper";
 export default function Home() {
     const navigation = useNavigation();
     return (
@@ -24,6 +25,12 @@ export default function Home() {
             </View>
             <View style={styles.contentNew}>
                 <Text style={styles.title}>Novidades</Text>
+                <Button mode="contained-tonal" onPress={() => navigation.navigate("PhotoPostScreen")}>
+                    Nova Postagem
+                </Button>
+                <Button mode="contained-tonal" onPress={() => navigation.navigate("FeedScreen")}>
+                    Ver Feed
+                </Button>
             </View>
             <ScrollView
                 horizontal
